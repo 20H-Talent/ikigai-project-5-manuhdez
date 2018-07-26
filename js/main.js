@@ -22,6 +22,8 @@ const arrows = document.querySelectorAll('.arrow');
 thumbnails.forEach( thumb => thumb.addEventListener('click', openPopup));
 arrows.forEach( arrow => arrow.addEventListener('click', () => changeImage(arrow)));
 popup.addEventListener('click', closePopup);
+window.addEventListener('keydown', changeImage);
+window.addEventListener('keydown', closePopup);
 
 function openPopup(e) {
 	const imgNumber = e.target.dataset.img;
@@ -45,18 +47,19 @@ function openPopup(e) {
 }
 
 function closePopup(e) {
-	if (e.target.classList[0] === 'pop-up') {
+	if (e.target.classList[0] === 'pop-up' || e.keyCode == 27) {
 		popup.style.display = 'none';
 	}
 }
 
 function changeImage(button) {
 	const arrow = button.id;
+	const key = button.keyCode;
 	let image = +bigImage.dataset.img;
 
-	if (arrow === 'forw' && image < 12) {
+	if (arrow === 'forw' || key == 39 && image < 12) {
 		image++;
-	} else if (arrow === 'back' && image > 1) {
+	} else if (arrow === 'back' || key == 37 && image > 1) {
 		image--;
 	}
 
