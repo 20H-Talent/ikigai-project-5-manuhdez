@@ -2,13 +2,11 @@
 html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
-                          /*************************
-                              Navigation styles
-                          **************************/
-
+/*************************
+    Navigation styles
+**************************/
 nav {
   position: fixed;
   top: 0;
@@ -17,54 +15,43 @@ nav {
   background-color: #fff;
   display: flex;
   /* Border added to debug scrolling images below the nav */
-  border-bottom: 1px solid #ddd;
-}
+  border-bottom: 1px solid #ddd; }
 
 input {
   margin: auto;
-  width: 460px;
+  width: 50%;
   font-size: 14pt;
   color: #999;
   padding: 10px;
-  border: 2px solid #ddd;
-}
+  border: 2px solid #ddd; }
 
 input::placeholder {
-  color: #ccc;
-}
+  color: #ccc; }
 
-                        /*************************
-                            Image gallery styles
-                        **************************/
-
+/*************************
+    Image gallery styles
+**************************/
 .gallery {
   width: 90%;
   margin: 120px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
   grid-gap: 30px;
-  justify-content: space-between;
-  /* align-items: space-between; */
-  /* Background color for debbuggin position */
-  /* background-color: #ddd; */
-}
+  justify-content: space-around; }
 
 .thumbnail {
   width: 200px;
   height: 200px;
   /* margin-bottom: 60px; */
   cursor: pointer;
-  margin: auto;
-}
+  margin: auto; }
 
 .hidden {
-  display: none;
-}
+  display: none; }
 
-                      /*************************
-                            Pop up styles
-                      **************************/
-
+/*************************
+      Pop up styles
+**************************/
 .pop-up {
   position: absolute;
   top: 0;
@@ -72,9 +59,8 @@ input::placeholder {
   z-index: 10;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .7);
-  display: none;
-}
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none; }
 
 #big-img {
   width: 980px;
@@ -84,8 +70,7 @@ input::placeholder {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
+  transform: translate(-50%, -50%); }
 
 .caption {
   position: absolute;
@@ -95,8 +80,7 @@ input::placeholder {
   width: 600px;
   max-height: 110px;
   color: white;
-  text-align: center;
-}
+  text-align: center; }
 
 .arrow {
   width: 20px;
@@ -106,15 +90,14 @@ input::placeholder {
   border-radius: 2px;
   position: absolute;
   top: 50%;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 #back {
   transform: rotate(45deg);
-  left: 50px;
-}
+  left: 50px; }
 
 #forw {
   transform: rotate(225deg);
-  right: 50px;
-}
+  right: 50px; }
+
+/*# sourceMappingURL=styles.css.map */

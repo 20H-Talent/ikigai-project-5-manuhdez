@@ -1,0 +1,12 @@
+// Import reset styles
+@import 'base/reset';
+
+// Import utilities
+@import 'utilities/variables',
+        'utilities/extends',
+        'utilities/mixins';
+
+// Import component styles
+@import 'components/navigation',
+        'components/gallery',
+        'components/popup';
