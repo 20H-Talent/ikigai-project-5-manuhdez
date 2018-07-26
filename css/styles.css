@@ -49,9 +49,66 @@ input::placeholder {
   /* background-color: #ddd; */
 }
 
-img {
+.thumbnail {
   width: 200px;
   height: 200px;
   margin-bottom: 60px;
   cursor: pointer;
+}
+
+                                                  /*************************
+                                                        Pop up styles
+                                                  **************************/
+
+.pop-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  /* display: none; */
+}
+
+#big-img {
+  width: 980px;
+  height: auto;
+  padding: 15px;
+  border: 1px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.caption {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  max-height: 110px;
+  color: white;
+  border: 1px solid white;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+}
+
+#back {
+  transform: rotate(45deg);
+  left: 50px;
+}
+
+#forw {
+  transform: rotate(225deg);
+  right: 50px;
 }
