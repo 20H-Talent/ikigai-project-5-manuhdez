@@ -5,9 +5,9 @@ html {
   box-sizing: border-box;
 }
 
-                                                  /*************************
-                                                      Navigation styles
-                                                  **************************/
+                          /*************************
+                              Navigation styles
+                          **************************/
 
 nav {
   position: fixed;
@@ -33,9 +33,9 @@ input::placeholder {
   color: #ccc;
 }
 
-                                                  /*************************
-                                                     Image gallery styles
-                                                  **************************/
+                        /*************************
+                            Image gallery styles
+                        **************************/
 
 .gallery {
   width: 980px;
@@ -56,9 +56,9 @@ input::placeholder {
   cursor: pointer;
 }
 
-                                                  /*************************
-                                                        Pop up styles
-                                                  **************************/
+                      /*************************
+                            Pop up styles
+                      **************************/
 
 .pop-up {
   position: absolute;
