@@ -30,6 +30,7 @@ function openPopup(e) {
 
 	bigImage.src = `images/photos/${imgNumber}.jpg`;
 	bigImage.dataset.img = imgNumber;
+	bigImage.alt = e.target.alt;
 	imgCaption.textContent = captions[imgNumber];
 	popup.style.display = 'block';
 
@@ -52,6 +53,9 @@ function openPopup(e) {
 function closePopup(e) {
 	if (e.target.classList[0] === 'pop-up' || e.keyCode == 27) {
 		popup.style.display = 'none';
+		bigImage.alt = '';
+		bigImage.src = '#';
+		bigImage.dataset.img = '';
 	}
 }
 
@@ -69,6 +73,8 @@ function changeImage(button) {
 	let newImage = image < 10 ? `0${image}` : image;
 	bigImage.src = `images/photos/${newImage}.jpg`;
 	bigImage.dataset.img = newImage;
+	const imageData = document.querySelector(`img[data-img="${newImage}"]`);
+	bigImage.alt = imageData.alt;
 	imgCaption.textContent = captions[newImage];
 
 	if (newImage == '01') {
