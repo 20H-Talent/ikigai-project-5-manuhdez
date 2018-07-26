@@ -101,6 +101,7 @@ input::placeholder {
   border-radius: 2px;
   position: absolute;
   top: 50%;
+  cursor: pointer;
 }
 
 #back {

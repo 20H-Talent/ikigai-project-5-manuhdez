@@ -11,26 +11,45 @@ const captions = {
 	'10': 'Sunset at the coast! The sky turned a lovely shade of orange.',
 	'11': 'I did a tour of a cave today and the view of the landscape below was breathtaking.',
 	'12': 'I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in.',
-}
+};
 
-const thumbnails = document.querySelectorAll('.thumbnail')
-const popup = document.querySelector('.pop-up')
-const bigImage = document.querySelector('#big-img')
-const imgCaption = document.querySelector('.caption')
+const thumbnails = document.querySelectorAll('.thumbnail');
+const popup = document.querySelector('.pop-up');
+const bigImage = document.querySelector('#big-img');
+const imgCaption = document.querySelector('.caption');
+const arrows = document.querySelectorAll('.arrow');
 
-thumbnails.forEach( thumb => thumb.addEventListener('click', openPopup))
-popup.addEventListener('click', closePopup)
+thumbnails.forEach( thumb => thumb.addEventListener('click', openPopup));
+arrows.forEach( arrow => arrow.addEventListener('click', () => changeImage(arrow)));
+popup.addEventListener('click', closePopup);
 
 function openPopup(e) {
-	const imgNumber = e.target.dataset.img
+	const imgNumber = e.target.dataset.img;
 
-	bigImage.src = `images/photos/${imgNumber}.jpg`
-	imgCaption.textContent = captions[imgNumber]
-	popup.style.display = 'block'
+	bigImage.src = `images/photos/${imgNumber}.jpg`;
+	bigImage.dataset.img = imgNumber;
+	imgCaption.textContent = captions[imgNumber];
+	popup.style.display = 'block';
 }
 
 function closePopup(e) {
 	if (e.target.classList[0] === 'pop-up') {
-		popup.style.display = 'none'
+		popup.style.display = 'none';
 	}
+}
+
+function changeImage(button) {
+	const arrow = button.id;
+	let image = +bigImage.dataset.img;
+
+	if (arrow === 'forw' && image < 12) {
+		image++;
+	} else if (arrow === 'back' && image > 1) {
+		image--;
+	}
+
+	let newImage = image < 10 ? `0${image}` : image;
+	bigImage.src = `images/photos/${newImage}.jpg`;
+	bigImage.dataset.img = newImage;
+	imgCaption.textContent = captions[newImage];
 }
