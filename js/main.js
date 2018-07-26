@@ -25,7 +25,10 @@ arrows.forEach( arrow => arrow.addEventListener('click', () => changeImage(arrow
 popup.addEventListener('click', closePopup);
 searchBar.addEventListener('input', searchImage);
 
+// let isPopOpen = false;
+
 function openPopup(e) {
+	// isPopOpen = true;
 	const imgNumber = e.target.dataset.img;
 
 	bigImage.src = `images/photos/${imgNumber}.jpg`;
@@ -56,6 +59,9 @@ function closePopup(e) {
 		bigImage.alt = '';
 		bigImage.src = '#';
 		bigImage.dataset.img = '';
+		// isPopOpen = false;
+		window.removeEventListener('keydown', changeImage);
+		window.removeEventListener('keydown', closePopup);
 	}
 }
 
