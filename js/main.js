@@ -30,6 +30,18 @@ function openPopup(e) {
 	bigImage.dataset.img = imgNumber;
 	imgCaption.textContent = captions[imgNumber];
 	popup.style.display = 'block';
+
+	if (imgNumber == '01') {
+		arrows[0].style.visibility = 'hidden';
+	} else {
+		arrows[0].style.visibility = 'visible';
+	}
+
+	if (imgNumber == '12') {
+		arrows[1].style.visibility = 'hidden';
+	} else {
+		arrows[1].style.visibility = 'visible';
+	}
 }
 
 function closePopup(e) {
@@ -52,4 +64,16 @@ function changeImage(button) {
 	bigImage.src = `images/photos/${newImage}.jpg`;
 	bigImage.dataset.img = newImage;
 	imgCaption.textContent = captions[newImage];
+
+	if (newImage == '01') {
+		arrows[0].style.visibility = 'hidden';
+	} else {
+		arrows[0].style.visibility = 'visible';
+	}
+
+	if (newImage == '12') {
+		arrows[1].style.visibility = 'hidden';
+	} else {
+		arrows[1].style.visibility = 'visible';
+	}
 }
