@@ -1,0 +1,35 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+                                                  /*************************
+                                                      Navigation styles
+                                                  **************************/
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  display: flex;
+  /* Border added to debug scrolling images below the nav */
+  border-bottom: 1px solid #ddd;
+}
+
+input {
+  margin: auto;
+  width: 460px;
+  font-size: 14pt;
+  color: #999;
+  padding: 10px;
+  border: 2px solid #ddd;
+}
+
+input::placeholder {
+  color: #ccc;
+}
