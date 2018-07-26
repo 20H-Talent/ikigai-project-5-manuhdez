@@ -56,6 +56,10 @@ input::placeholder {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
                       /*************************
                             Pop up styles
                       **************************/
