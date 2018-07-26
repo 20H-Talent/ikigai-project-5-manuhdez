@@ -90,7 +90,7 @@ input::placeholder {
   width: 600px;
   max-height: 110px;
   color: white;
-  border: 1px solid white;
+  text-align: center;
 }
 
 .arrow {
