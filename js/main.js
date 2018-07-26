@@ -18,12 +18,12 @@ const popup = document.querySelector('.pop-up');
 const bigImage = document.querySelector('#big-img');
 const imgCaption = document.querySelector('.caption');
 const arrows = document.querySelectorAll('.arrow');
+const searchBar = document.querySelector('#search-bar');
 
 thumbnails.forEach( thumb => thumb.addEventListener('click', openPopup));
 arrows.forEach( arrow => arrow.addEventListener('click', () => changeImage(arrow)));
 popup.addEventListener('click', closePopup);
-window.addEventListener('keydown', changeImage);
-window.addEventListener('keydown', closePopup);
+searchBar.addEventListener('input', searchImage);
 
 function openPopup(e) {
 	const imgNumber = e.target.dataset.img;
@@ -44,6 +44,9 @@ function openPopup(e) {
 	} else {
 		arrows[1].style.visibility = 'visible';
 	}
+
+	window.addEventListener('keydown', changeImage);
+	window.addEventListener('keydown', closePopup);
 }
 
 function closePopup(e) {
@@ -78,5 +81,22 @@ function changeImage(button) {
 		arrows[1].style.visibility = 'hidden';
 	} else {
 		arrows[1].style.visibility = 'visible';
+	}
+}
+
+function searchImage(e) {
+	const searchTerm = e.target.value;
+	const thumbArray = [];
+	thumbnails.forEach( thumb => thumbArray.push(thumb));
+
+	if (searchTerm !== '') {
+		const notFound = thumbArray.filter( thumb => !thumb.alt.toLowerCase().includes(searchTerm));
+		notFound.map( thumb => thumb.classList.add('hidden'));
+
+		const found = thumbArray.filter( thumb => thumb.alt.toLowerCase().includes(searchTerm));
+		found.map( thumb => thumb.classList.remove('hidden'));
+
+	} else {
+		thumbArray.map( thumb => thumb.classList.remove('hidden'));
 	}
 }
