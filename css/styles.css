@@ -32,19 +32,25 @@ input::placeholder {
     Image gallery styles
 **************************/
 .gallery {
-  width: 90%;
   margin: 120px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  grid-gap: 30px;
-  justify-content: space-around; }
+  width: 75%;
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 480px) {
+    .gallery {
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 200px);
+      grid-gap: 30px;
+      justify-content: flex-start; } }
 
 .thumbnail {
-  width: 200px;
-  height: 200px;
-  /* margin-bottom: 60px; */
+  width: 100%;
   cursor: pointer;
-  margin: auto; }
+  margin: 15px 0; }
+  @media (min-width: 480px) {
+    .thumbnail {
+      margin: 0; } }
 
 .hidden {
   display: none; }
@@ -63,7 +69,7 @@ input::placeholder {
   display: none; }
 
 #big-img {
-  width: 980px;
+  width: 80%;
   height: auto;
   padding: 15px;
   border: 1px solid white;
