@@ -52,7 +52,7 @@ function closePopup(e) {
 }
 
 function changeImage(button) {
-	// button.preventDefault();
+	button.preventDefault();
 	const arrow = button.id;
 	const key = button.keyCode;
 	let image = +bigImage.dataset.img;
