@@ -1,4 +1,4 @@
-
+const imgCaptions = imageCaptions;
 const thumbnails = document.querySelectorAll('.thumbnail');
 const popup = document.querySelector('.pop-up');
 const bigImage = document.querySelector('#big-img');
@@ -20,7 +20,7 @@ function openPopup(e) {
 	bigImage.src = `images/photos/${imgNumber}.jpg`;
 	bigImage.dataset.img = imgNumber;
 	bigImage.alt = e.target.alt;
-	imgCaption.textContent = imageCaptions[imgNumber];
+	imgCaption.textContent = imgCaptions[imgNumber];
 	popup.style.display = 'block';
 
 	if (imgNumber == '01') {
@@ -52,10 +52,13 @@ function closePopup(e) {
 }
 
 function changeImage(button) {
-	button.preventDefault();
 	const arrow = button.id;
 	const key = button.keyCode;
 	let image = +bigImage.dataset.img;
+
+	if (key == 39 || key == 37) {
+		button.preventDefault();
+	}
 
 	if (arrow === 'forw' || key == 39 && image < 12) {
 		image++;
@@ -68,7 +71,7 @@ function changeImage(button) {
 	bigImage.dataset.img = newImage;
 	const imageData = document.querySelector(`img[data-img="${newImage}"]`);
 	bigImage.alt = imageData.alt;
-	imgCaption.textContent = imageCaptions[newImage];
+	imgCaption.textContent = imgCaptions[newImage];
 
 	if (newImage == '01') {
 		arrows[0].style.visibility = 'hidden';
