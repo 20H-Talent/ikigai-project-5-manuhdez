@@ -95,7 +95,7 @@ function changeImage(input) {
 }
 
 function searchImage(e) {
-	const searchTerm = e.target.value;
+	const searchTerm = e.target.value.toLowerCase();
 	const thumbArray = [];
 	thumbnails.forEach( thumb => thumbArray.push(thumb));
 
@@ -113,5 +113,6 @@ function searchImage(e) {
 
 function handleTouchEvents(e) {
 	console.log(e.touches);
-	lastTouch = new Date.now();
+	const lastTouch = new Date.now();
+	console.log(lastTouch);
 }
