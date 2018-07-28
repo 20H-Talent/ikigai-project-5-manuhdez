@@ -69,34 +69,41 @@ input::placeholder {
   display: none; }
 
 #big-img {
-  width: 80%;
+  width: 90%;
   height: auto;
-  padding: 15px;
-  border: 1px solid white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
+  @media (min-width: 740px) {
+    #big-img {
+      width: 80%;
+      padding: 15px;
+      border: 1px solid white; } }
 
 .caption {
   position: absolute;
   bottom: 90px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
+  width: 60%;
   max-height: 110px;
   color: white;
   text-align: center; }
 
 .arrow {
-  width: 20px;
-  height: 20px;
-  border-bottom: 5px solid white;
-  border-left: 5px solid white;
-  border-radius: 2px;
-  position: absolute;
-  top: 50%;
-  cursor: pointer; }
+  visibility: hidden; }
+  @media (min-width: 740px) {
+    .arrow {
+      visibility: visible;
+      width: 20px;
+      height: 20px;
+      border-bottom: 5px solid white;
+      border-left: 5px solid white;
+      border-radius: 2px;
+      position: absolute;
+      top: 50%;
+      cursor: pointer; } }
 
 #back {
   transform: rotate(45deg);
