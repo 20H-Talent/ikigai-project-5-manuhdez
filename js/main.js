@@ -26,6 +26,7 @@ function openPopup(e) {
 	bigImage.dataset.order = imgOrder;
 	bigImage.alt = imgAlt;
 	imgCaption.textContent = imgText;
+	popup.style.top = `${window.pageYOffset}px`;
 	popup.style.display = 'block';
 
 	if (imgOrder == 0) {
@@ -39,7 +40,13 @@ function openPopup(e) {
 	} else {
 		arrows[1].style.visibility = 'visible';
 	}
-	isPopupOpen = true;
+
+	if (window.pageYOffset < 60) {
+		popup.style.height = '100%';
+	} else {
+		popup.style.height = '100vh';
+	}
+	// isPopupOpen = true;
 	window.addEventListener('keydown', changeImage);
 	window.addEventListener('keydown', closePopup);
 }
@@ -50,7 +57,7 @@ function closePopup(e) {
 		bigImage.alt = '';
 		bigImage.src = '#';
 		bigImage.dataset.order = '';
-		isPopupOpen = false;
+		// isPopupOpen = false;
 		window.removeEventListener('keydown', changeImage);
 		window.removeEventListener('keydown', closePopup);
 	}
