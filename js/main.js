@@ -12,9 +12,6 @@ thumbnails.forEach( thumb => thumb.addEventListener('click', openPopup));
 arrows.forEach( arrow => arrow.addEventListener('click', () => changeImage(arrow)));
 popup.addEventListener('click', closePopup);
 searchBar.addEventListener('input', searchImage);
-window.addEventListener('toucstart', handleTouchEvents);
-
-// Global variables
 
 
 // Functions
@@ -42,7 +39,7 @@ function openPopup(e) {
 	} else {
 		arrows[1].style.visibility = 'visible';
 	}
-
+	isPopupOpen = true;
 	window.addEventListener('keydown', changeImage);
 	window.addEventListener('keydown', closePopup);
 }
@@ -53,7 +50,7 @@ function closePopup(e) {
 		bigImage.alt = '';
 		bigImage.src = '#';
 		bigImage.dataset.order = '';
-		// isPopOpen = false;
+		isPopupOpen = false;
 		window.removeEventListener('keydown', changeImage);
 		window.removeEventListener('keydown', closePopup);
 	}
@@ -69,9 +66,9 @@ function changeImage(input) {
 	if (key == 39 || key == 37) {
 		input.preventDefault();
 	}
-	if (arrow === 'forw' || key == 39 && imgOrder < 11) {
+	if (arrow === 'forw' || key == 39 || input === 'slideLeft' && imgOrder < 11) {
 		imgOrder++;
-	} else if (arrow === 'back' || key == 37 && imgOrder > 0) {
+	} else if (arrow === 'back' || key == 37 || input === 'slideRight' && imgOrder > 0) {
 		imgOrder--;
 	}
 
@@ -111,8 +108,31 @@ function searchImage(e) {
 	}
 }
 
-function handleTouchEvents(e) {
-	console.log(e.touches);
-	const lastTouch = new Date.now();
-	console.log(lastTouch);
-}
+// Image sliding for touch screens
+let isFingerDown = false;
+let startX;
+let slideX;
+
+bigImage.addEventListener('touchstart', (e) => {
+	isFingerDown = true;
+	startX = e.touches[0].pageX;
+});
+
+bigImage.addEventListener('touchend', () => {
+	isFingerDown = false;
+});
+
+bigImage.addEventListener('touchmove', (e) => {
+	if (!isFingerDown) return; //Avoid the fn from running
+	const x = e.touches[0].pageX;
+	slideX = x - startX;
+
+	if (slideX > 100) {
+		changeImage('slideRight');
+		isFingerDown = false;
+	}
+	if (slideX < -100) {
+		changeImage('slideLeft');
+		isFingerDown = false;
+	}
+});
