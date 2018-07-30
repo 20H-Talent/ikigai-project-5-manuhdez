@@ -14,19 +14,67 @@ nav {
   height: 100px;
   background-color: #fff;
   display: flex;
+  align-items: center;
+  justify-content: center;
   /* Border added to debug scrolling images below the nav */
   border-bottom: 1px solid #ddd; }
 
 input {
-  margin: auto;
   width: 50%;
   font-size: 14pt;
   color: #999;
   padding: 10px;
-  border: 2px solid #ddd; }
+  margin-right: 5px;
+  border: 2px solid #ddd;
+  border-radius: 5px; }
 
 input::placeholder {
   color: #ccc; }
+
+.slideshow {
+  position: relative;
+  width: 50px;
+  padding: 10px;
+  margin-left: 5px;
+  border: 1px solid rgba(30, 30, 30, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.2);
+  transition: all 200ms ease-out;
+  display: flex;
+  cursor: pointer; }
+  .slideshow:hover {
+    box-shadow: 0 0 12px 4px rgba(80, 80, 80, 0.1);
+    transform: scale(1.05); }
+    .slideshow:hover #player-detail {
+      visibility: visible; }
+  .slideshow #player-detail {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 80px;
+    padding: 5px 0;
+    border-radius: 5px;
+    color: white;
+    background-color: #969696;
+    transition: all 200ms 500ms ease-out;
+    visibility: hidden; }
+    .slideshow #player-detail p {
+      font-size: .8rem; }
+    .slideshow #player-detail::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      background-color: #969696; }
+  .slideshow > p {
+    margin: auto;
+    font-size: 14pt;
+    color: green; }
 
 /*************************
     Image gallery styles
