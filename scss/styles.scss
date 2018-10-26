@@ -2,11 +2,7 @@
 @import 'base/reset';
 
 // Import utilities
-@import 'utilities/variables',
-        'utilities/extends',
-        'utilities/mixins';
+@import 'utilities/index';
 
 // Import component styles
-@import 'components/navigation',
-        'components/gallery',
-        'components/popup';
+@import 'components/index';
